@@ -17,19 +17,14 @@ function Nav() {
     const guestLinks = (
         <Fragment>
           
-          <div className="hvr-underline-from-right hvr-rotate">
+          <div className="nav-link">
+              <Link to="/about" className="white">
+                Leaderboard
+              </Link>
+            </div>
+          <div className="nav-link">
               <Link to="/about" className="white">
                 About
-              </Link>
-            </div>
-            <div className="hvr-underline-from-right hvr-rotate">
-              <Link to="/register" className="white">
-                How it works
-              </Link>
-            </div>
-            <div className="hvr-underline-from-right hvr-rotate">
-              <Link to="/login" className="white">
-                FAQ
               </Link>
             </div>
             
@@ -38,7 +33,7 @@ function Nav() {
       );
       
       const navStyle = {
-        color: 'white'
+        color: '#424659'
     };
 
 

@@ -8,7 +8,7 @@ const starts = 1;
 const contributions = 2;
 
 const userStatsList = (
-    <ul className='dashboard-stats-list w3-border'>
+    <ul className='w3-ul dashboard-stats-list'>
     <li>
         Pounds of trash picked up : {poundsPicked}
     </li>
@@ -33,9 +33,16 @@ const userStatsList = (
 
 const Dashboard = () => {
     return (
-        <container className="userStat-container">
-        {userStatsList}
-        </container>
+        <div className="grid-container">
+            <div className="item1">
+                
+            </div>
+            <div className="item2">
+                <container className="stats-container">
+                {userStatsList}
+                </container>
+            </div>
+        </div>
     );
 };
 
