@@ -3,12 +3,9 @@ var D = new Date();
 var Hours = D.getHours();
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -34.397, lng: 150.644},
+    center: {lat: -34.0522, lng: 118.2437},
     zoom: 18,
-    disableDefaultUI: true,
-    gestureHandling: 'none',
-    zoomControl: false,
-    styles: Hours > 16 ?  [
+    styles: Hours < 16 ?  [
         {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
         {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
         {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
@@ -111,6 +108,7 @@ function initMap() {
     // Browser doesn't support Geolocation
     handleLocationError(false, infoWindow, map.getCenter());
   }
+  
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -120,3 +118,18 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
+
+const button = document.querySelector(`.clickMe`)
+
+button.addEventListener(`click`, function add(){
+  var marker = new google.maps.Marker({
+    position: map.getCenter(),
+    icon: 'https://www.jing.fm/clipimg/full/57-572046_trash-can-high-quality-png-garbage-can-transparent.png',
+    map: map,
+    draggable:true,
+    title:"Drag me!",
+    animation:google.maps.Animation.DROP,
+  });
+})
+
+
