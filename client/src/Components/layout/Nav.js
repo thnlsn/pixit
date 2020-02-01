@@ -18,24 +18,24 @@ function Nav(props) {
 
         <div className="nav-item2">
           <div className="nav-link">
-            <Link to="/leaderboard" className="white">
+            <Link to="/leaderboard" className="nav-link">
             Leaderboard
            </Link>
           </div>
           <div className="nav-link">
-            <Link to="/map" className="white">
+            <Link to="/map" className="nav-link">
             Map
             </Link>
           </div>
           <div className="nav-link">
-            <Link to="/about" className="white">
+            <Link to="/about" className="nav-link">
             About
             </Link>
           </div>
         </div> 
         <div className="nav-item3">
         <div className="nav-link">
-            <Link to="/about" className="white">
+            <Link to="/about" className="nav-link">
             Logout
             </Link>
           </div>
@@ -48,24 +48,24 @@ function Nav(props) {
         <Fragment>
           <div className="nav-item2">
             <div className="nav-link">
-              <Link to="/about" className="white">
+              <Link to="/about" className="title-link">
                 Leaderboard
               </Link>
             </div>
             <div className="nav-link">
-              <Link to="/about" className="white">
+              <Link to="/about" className="title-link">
                 About
               </Link>
             </div>
           </div>
         <div className="nav-item3">
           <div className="nav-link">
-            <Link to="/about" className="white">
+            <Link to="/about" className="nav-link">
             Login
             </Link>
           </div>
           <div className="nav-link">
-            <Link to="/about" className="white">
+            <Link to="/about" className="nav-link">
             Register
             </Link>
           </div>
