@@ -4,6 +4,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from '../src/Components/layout/Nav'
 import Splash from './Components/SplashPage/Splash'
 import Dashboard from '../src/Components/Dashboard/Dashboard'
+import Leaderboard from '../src/Components/Leaderboard/Leaderboard'
+
+// pages
+import Register from '../src/Components/auth/Register';
+import Login from '../src/Components/auth/Login';
+import About from '../src/Components/About';
 
 const isAuthenticated = true;
 
@@ -27,12 +33,13 @@ function App() {
           <Nav isAuthenticated={isAuthenticated}/>
         <div className='container'>
 
+          {/* <Leaderboard/> */}
+          {/* <MapComponent/> */}
+
         {isAuthenticated ? mainPage : splashPage}
           
             {/* <Alerts /> */}
             {/* <Preload /> */}
-            <Switch>
-            </Switch>
         </div>
     </div>
 </Router>
