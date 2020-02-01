@@ -1,27 +1,36 @@
 {
-  "name": "pixit",
-  "version": "1.0.0",
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thnlsn/pixit.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/thnlsn/pixit/issues"
-  },
-  "homepage": "https://github.com/thnlsn/pixit#readme",
-  "dependencies": {
-    "bcrypt": "^3.0.7",
-    "concurrently": "^5.1.0",
-    "config": "^3.2.5",
-    "express": "^4.17.1",
-    "mongoose": "^5.8.11"
-  }
+    "name": "pixit",
+    "version": "1.0.0",
+    "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thnlsn/pixit.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/thnlsn/pixit/issues"
+    },
+    "homepage": "https://github.com/thnlsn/pixit#readme",
+    "dependencies": {
+        "async": "^3.1.0",
+        "bcryptjs": "^3.0.7",
+        "concurrently": "^5.1.0",
+        "cookie-parser": "^1.4.4",
+        "express": "^4.17.1",
+        "is-mobile": "^2.1.0",
+        "jsonwebtoken": "^8.5.1",
+        "mongodb": "^3.3.4",
+        "passport": "^0.4.0",
+        "passport-jwt": "^4.0.0",
+        "passport-local": "^1.0.0",
+        "react-backend": "^1.1.2",
+        "config": "^3.2.5",
+        "mongoose": "^5.8.11"
+    }
 }
