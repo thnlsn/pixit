@@ -11,7 +11,11 @@ import Register from '../src/Components/auth/Register';
 import Login from '../src/Components/auth/Login';
 import About from '../src/Components/About';
 
-const isAuthenticated = true;
+// context
+import UserState from './context/user/UserState';
+import AlertState from './context/alert/AlertState';
+
+const isAuthenticated = false;
 
 
   const mainPage = (
@@ -28,11 +32,18 @@ const isAuthenticated = true;
 
 function App() {
   return (
-    <Router>
-    <div className='App'>
+    <UserState>
+      <AlertState>
+      <Router>
+        <div className='App'>
           <Nav isAuthenticated={isAuthenticated}/>
         <div className='container'>
-
+            <Switch>
+              <Route path='/' exact component={Dashboard} />
+              <Route path='/register' component={Register} />
+              <Route path='/login' component={Login} />
+              <Route path='/about' component={About} />
+              <Route path='/leaderboard' component={Leaderboard} />
           {/* <Leaderboard/> */}
           {/* <MapComponent/> */}
 
@@ -40,9 +51,12 @@ function App() {
           
             {/* <Alerts /> */}
             {/* <Preload /> */}
+            </Switch>
         </div>
     </div>
-</Router>
+  </Router>
+  </AlertState>
+</UserState>
   );
 }
 
