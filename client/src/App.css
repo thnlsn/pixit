@@ -28,7 +28,6 @@ nav {
   min-height: 10vh;
   background: #97c6d6;
   color: #424659;
-  border-bottom: 2px solid white;
 }
 
 .nav-grid-container {
@@ -110,10 +109,13 @@ text-decoration: none;
 
 .user-stats-list {
   list-style-type: none;
+  color: #97c6d6;
+  font-size: 150%;
+  text-align: left;
 }
 
 li {
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 .grid-container {
