@@ -5,7 +5,7 @@ import Nav from '../src/Components/layout/Nav'
 import Splash from './Components/SplashPage/Splash'
 import Dashboard from '../src/Components/Dashboard/Dashboard'
 
-const isLoggedIn = true;
+const isAuthenticated = true;
 
 
   const mainPage = (
@@ -24,10 +24,10 @@ function App() {
   return (
     <Router>
     <div className='App'>
-        <Nav />
+          <Nav isAuthenticated={isAuthenticated}/>
         <div className='container'>
 
-        {isLoggedIn ? mainPage : splashPage}
+        {isAuthenticated ? mainPage : splashPage}
           
             {/* <Alerts /> */}
             {/* <Preload /> */}

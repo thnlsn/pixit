@@ -3,7 +3,7 @@ import '../../App.css';
 import { Link } from 'react-router-dom';
 // import UserContext from '../../context/user/userContext';
 
-function Nav() {
+function Nav(props) {
 
     // const userContext = useContext(UserContext);
 
@@ -12,6 +12,28 @@ function Nav() {
     // const onLogout = () => {
     //     logout();
     // };
+
+    const authLinks = (
+      <Fragment>
+
+        <div className="nav-link">
+          <Link to="/leaderboard" className="white">
+            Leaderboard
+          </Link>
+        </div>
+        <div className="nav-link">
+          <Link to="/map" className="white">
+            Map
+          </Link>
+        </div>
+        <div className="nav-link">
+          <Link to="/about" className="white">
+            About
+          </Link>
+        </div>
+
+      </Fragment>
+    )
 
 
     const guestLinks = (
@@ -45,12 +67,11 @@ function Nav() {
                     <span className='hvr-underline-from-left'>PIXIT</span>
                 </h1>
             </Link>
-            <ul className='nav-links'>
+            <div className='nav-links'>
                 
-                {/* {isAuthenticated ? authLinks : guestLinks} */}
-                {guestLinks}
+                {props.isAuthenticated ? authLinks : guestLinks}
                 
-            </ul>
+            </div>
         </nav>
     );
 }
