@@ -1,24 +1,24 @@
 import React, { Fragment, useContext } from 'react';
 import '../../App.css';
 import { Link } from 'react-router-dom';
-// import UserContext from '../../context/user/userContext';
+import UserContext from '../../context/user/userContext';
 
 function Nav(props) {
 
-    // const userContext = useContext(UserContext);
+    const userContext = useContext(UserContext);
 
-    // const { isAuthenticated, logout, user } = userContext;
+    const { isAuthenticated, logout, user } = userContext;
 
-    // const onLogout = () => {
-    //     logout();
-    // };
+    const onLogout = () => {
+        logout();
+    };
 
     const authLinks = (
     <Fragment>
 
         <div className="nav-item2">
           <div className="nav-link">
-            <Link to="/leaderboard" className="nav-link">
+            <Link to="/leaderboard">
             Leaderboard
            </Link>
           </div>
@@ -48,7 +48,7 @@ function Nav(props) {
         <Fragment>
           <div className="nav-item2">
             <div className="nav-link">
-              <Link to="/about" className="title-link">
+              <Link to="/leaderboard" className="title-link">
                 Leaderboard
               </Link>
             </div>
@@ -60,12 +60,12 @@ function Nav(props) {
           </div>
         <div className="nav-item3">
           <div className="nav-link">
-            <Link to="/about" className="nav-link">
+            <Link to="/login" className="nav-link">
             Login
             </Link>
           </div>
           <div className="nav-link">
-            <Link to="/about" className="nav-link">
+            <Link to="/register" className="nav-link">
             Register
             </Link>
           </div>
