@@ -110,6 +110,26 @@ function initMap() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
   
+google.maps.event.addListener(map, "click", function (e) {
+  var marker = new google.maps.Marker({
+    position: map.getCenter(),
+    icon: 'https://www.jing.fm/clipimg/full/57-572046_trash-can-high-quality-png-garbage-can-transparent.png',
+    map: map,
+    draggable:true,
+    title:"Drag me!",
+    animation:google.maps.Animation.DROP,
+    optimized: false,
+  });
+  console.log(marker.position)
+});
+
+
+var myoverlay = new google.maps.OverlayView();
+    myoverlay.draw = function () {
+        this.getPanes().markerLayer.id='markerLayer';
+    };
+myoverlay.setMap(map);
+  
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -119,19 +139,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
-
-const button = document.querySelector(`.clickMe`)
-
-button.addEventListener(`click`, function add(){
-  var marker = new google.maps.Marker({
-    position: map.getCenter(),
-    icon: 'https://www.jing.fm/clipimg/full/57-572046_trash-can-high-quality-png-garbage-can-transparent.png',
-    map: map,
-    draggable:true,
-    title:"Drag me!",
-    animation:google.maps.Animation.DROP,
-  });
-})
-
-
 
