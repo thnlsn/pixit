@@ -29,7 +29,7 @@ const Dashboard = () => {
     return (
         <div className="grid-container">
             <div className="item1">
-                
+                MAP GOES HERE DUDES
             </div>
             <div className="item2">
                 <container className="stats-container">
