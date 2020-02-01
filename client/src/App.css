@@ -168,6 +168,38 @@ li {
   color: white;
 }
 
+.login-container, .register-container {
+color: #97c6d6;
+}
+
+.log-in-form, .register-form {
+  display: grid;
+  width: 30%;
+  margin: auto;
+  grid-template-columns: 1fr 2fr;
+  padding: 10px;
+  text-align: left;
+  font-size: 1.5em;
+}
+
+.log-in-button, .register-button {
+  margin: 20px;
+  padding: 6px;
+  font-size: 1em;
+}
+
+.login-title {
+color: #97c6d6;
+}
+
+.register-container {
+  color: #97c6d6;
+}
+
+.register-title {
+  color: #97c6d6;
+}
+
 .stats-container {
 
 }

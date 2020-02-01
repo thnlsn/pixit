@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import "../../App.css";
+import "../../Splash.css";
 
 const Splash = () => {
     return (
-        <div className='splash'>
-            <p>
-                Cleaning up your community one PIX at a time.
-            </p>
+        <Fragment>
+        <div className='splash-background'></div>
+        <p className='splash-text'>        Cleaning up your community one PIX at a time.</p>
+        </Fragment>
 
-        </div>
     );
 };
 
