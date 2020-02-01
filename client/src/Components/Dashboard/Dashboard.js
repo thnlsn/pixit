@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import UserContext from '../../context/user/userContext';
 
 // dummy stats
 const poundsPicked = 69;
@@ -26,6 +26,9 @@ const userStatsList = (
 )
 
 const Dashboard = () => {
+    const userContext = useContext(UserContext);
+    /*     const { isAuthenticated } = userContext; */
+
     return (
         <div className="grid-container">
             <div className="item1">
