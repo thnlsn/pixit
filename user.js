@@ -1,5 +1,5 @@
 let db = require('./db.js');
-let bcrypt = require('bcrypt');
+let bcrypt = require('bcryptjs');
 
 function check(obj) {
     var s = obj.name.search(/\W/);
