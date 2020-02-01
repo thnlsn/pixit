@@ -3,7 +3,8 @@ import '../../App.css';
 import { Link } from 'react-router-dom';
 // import UserContext from '../../context/user/userContext';
 
-function Nav() {
+function Nav(props) {
+
     // const userContext = useContext(UserContext);
 
     // const { isAuthenticated, logout, user } = userContext;
@@ -12,42 +13,81 @@ function Nav() {
     //     logout();
     // };
 
+    const authLinks = (
+    <Fragment>
+
+        <div className="nav-item2">
+          <div className="nav-link">
+            <Link to="/leaderboard" className="white">
+            Leaderboard
+           </Link>
+          </div>
+          <div className="nav-link">
+            <Link to="/map" className="white">
+            Map
+            </Link>
+          </div>
+          <div className="nav-link">
+            <Link to="/about" className="white">
+            About
+            </Link>
+          </div>
+        </div> 
+        <div className="nav-item3">
+        <div className="nav-link">
+            <Link to="/about" className="white">
+            Logout
+            </Link>
+          </div>
+        </div>
+    </Fragment>
+    )
+
+
     const guestLinks = (
         <Fragment>
-            <div className='hvr-underline-from-right hvr-rotate'>
-                <Link to='/about' className='white'>
-                    About
-                </Link>
+          <div className="nav-item2">
+            <div className="nav-link">
+              <Link to="/about" className="white">
+                Leaderboard
+              </Link>
             </div>
-            <div className='hvr-underline-from-right hvr-rotate'>
-                <Link to='/register' className='white'>
-                    How it works
-                </Link>
+            <div className="nav-link">
+              <Link to="/about" className="white">
+                About
+              </Link>
             </div>
-            <div className='hvr-underline-from-right hvr-rotate'>
-                <Link to='/login' className='white'>
-                    FAQ
-                </Link>
-            </div>
-        </Fragment>
-    );
-
-    const navStyle = {
-        color: 'white'
-    };
-
-    return (
-        <nav className='navbar'>
-            <Link to='/' className='title-link'>
-                <h1 style={navStyle} className='title'>
-                    <i className='fas fa-star spin'></i>
-                    <span className='hvr-underline-from-left'>PIXIT</span>
-                </h1>
+          </div>
+        <div className="nav-item3">
+          <div className="nav-link">
+            <Link to="/about" className="white">
+            Login
             </Link>
-            <ul className='nav-links'>
-                {/* {isAuthenticated ? authLinks : guestLinks} */}
-                {guestLinks}
-            </ul>
+          </div>
+          <div className="nav-link">
+            <Link to="/about" className="white">
+            Register
+            </Link>
+          </div>
+        </div>
+        </Fragment>
+      );
+      
+    //   const navStyle = {
+    //     color: '#424659'
+    // };
+
+
+      return (
+        <nav className='nav-grid-container'>
+            <div className="nav-item1">
+            <Link to='/' className='title-link'>
+                    <span className='title'>PIXIT</span>
+            </Link>
+            </div>
+                
+                {props.isAuthenticated ? authLinks : guestLinks}
+                
         </nav>
     );
 }
