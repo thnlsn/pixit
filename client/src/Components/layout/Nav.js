@@ -14,43 +14,62 @@ function Nav(props) {
     // };
 
     const authLinks = (
-      <Fragment>
+    <Fragment>
 
-        <div className="nav-link">
-          <Link to="/leaderboard" className="white">
+        <div className="nav-item2">
+          <div className="nav-link">
+            <Link to="/leaderboard" className="white">
             Leaderboard
-          </Link>
-        </div>
-        <div className="nav-link">
-          <Link to="/map" className="white">
+           </Link>
+          </div>
+          <div className="nav-link">
+            <Link to="/map" className="white">
             Map
-          </Link>
-        </div>
-        <div className="nav-link">
-          <Link to="/about" className="white">
+            </Link>
+          </div>
+          <div className="nav-link">
+            <Link to="/about" className="white">
             About
-          </Link>
+            </Link>
+          </div>
+        </div> 
+        <div className="nav-item3">
+        <div className="nav-link">
+            <Link to="/about" className="white">
+            Logout
+            </Link>
+          </div>
         </div>
-
-      </Fragment>
+    </Fragment>
     )
 
 
     const guestLinks = (
         <Fragment>
-          
-          <div className="nav-link">
+          <div className="nav-item2">
+            <div className="nav-link">
               <Link to="/about" className="white">
                 Leaderboard
               </Link>
             </div>
-          <div className="nav-link">
+            <div className="nav-link">
               <Link to="/about" className="white">
                 About
               </Link>
             </div>
-            
-          
+          </div>
+        <div className="nav-item3">
+          <div className="nav-link">
+            <Link to="/about" className="white">
+            Login
+            </Link>
+          </div>
+          <div className="nav-link">
+            <Link to="/about" className="white">
+            Register
+            </Link>
+          </div>
+        </div>
         </Fragment>
       );
       
@@ -60,15 +79,15 @@ function Nav(props) {
 
 
       return (
-        <nav className='navbar'>
+        <nav className='nav-grid-container'>
+            <div className="nav-item1">
             <Link to='/' className='title-link'>
                     <span className='title'>PIXIT</span>
             </Link>
-            <div className='nav-links'>
+            </div>
                 
                 {props.isAuthenticated ? authLinks : guestLinks}
                 
-            </div>
         </nav>
     );
 }

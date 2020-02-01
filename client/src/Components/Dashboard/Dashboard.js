@@ -1,5 +1,5 @@
-import React from 'react';
-
+import React, { useContext } from 'react';
+import UserContext from '../../context/user/userContext';
 
 // dummy stats
 const poundsPicked = 69;
@@ -8,38 +8,24 @@ const starts = 1;
 const contributions = 2;
 
 const userStatsList = (
-    <ul className='w3-ul dashboard-stats-list'>
-    <li>
-        Pounds of trash picked up : {poundsPicked}
-    </li>
-    <li>
-        Pix Points: {pixPoints}
-    </li>
-    <li>
-        Starts: {starts}
-    </li>
-    <li>
-        Contributions: {contributions}
-    </li>
-
-</ul>
-)
-
-
-
-
-
-
+    <ul className='w3-ul'>
+        <li>Pounds of trash picked up : {poundsPicked}</li>
+        <li>Pix Points: {pixPoints}</li>
+        <li>Starts: {starts}</li>
+        <li>Contributions: {contributions}</li>
+    </ul>
+);
 
 const Dashboard = () => {
+    const userContext = useContext(UserContext);
+    /*     const { isAuthenticated } = userContext; */
+
     return (
-        <div className="grid-container">
-            <div className="item1">
-                
-            </div>
-            <div className="item2">
-                <container className="stats-container">
-                {userStatsList}
+        <div className='grid-container'>
+            <div className='item1'></div>
+            <div className='item2'>
+                <container className='stats-container'>
+                    {userStatsList}
                 </container>
             </div>
         </div>
