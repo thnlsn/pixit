@@ -66,6 +66,31 @@ nav {
   margin: auto;
 }
 
+.splash {
+}
+
+.leaderboard-table, th, td, tr {
+  border: 1px solid black;
+  background-color: #97c6d6
+}
+
+.leaderboard-grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+}
+
+.leaderboard-item1 {
+grid-column-start: 1;
+grid-column-end: 4;
+grid-row-start: 1;
+grid-row-end: 3;
+display: block;
+margin: auto;
+/* BAD STYLING -  PIXELS JUST FOR TESTING */
+font-size: 50px;
+}
 
 .nav-link {
   display: inline-block;
@@ -83,8 +108,12 @@ text-decoration: none;
   color: #1e2a42
 }
 
-.w3-ul {
+.user-stats-list {
   list-style-type: none;
+}
+
+li {
+  border: 1px solid black;
 }
 
 .grid-container {
