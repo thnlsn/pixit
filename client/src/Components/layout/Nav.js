@@ -54,18 +54,15 @@ function Nav(props) {
         </Fragment>
       );
       
-      const navStyle = {
-        color: '#424659'
-    };
+    //   const navStyle = {
+    //     color: '#424659'
+    // };
 
 
       return (
         <nav className='navbar'>
             <Link to='/' className='title-link'>
-                <h1 style={navStyle} className='title'>
-                    <i className='fas fa-star spin'></i>
-                    <span className='hvr-underline-from-left'>PIXIT</span>
-                </h1>
+                    <span className='title'>PIXIT</span>
             </Link>
             <div className='nav-links'>
                 
