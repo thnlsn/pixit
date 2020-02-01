@@ -4,6 +4,7 @@ var Hours = D.getHours();
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: -34.0522, lng: 118.2437},
+    disableDefaultUI: true,
     zoom: 18,
     styles: Hours < 16 ?  [
         {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
@@ -98,7 +99,7 @@ function initMap() {
       };
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('You are here ${name}');
+      infoWindow.setContent('You are here');
       infoWindow.open(map);
       map.setCenter(pos);
     }, function() {
@@ -131,5 +132,6 @@ button.addEventListener(`click`, function add(){
     animation:google.maps.Animation.DROP,
   });
 })
+
 
 
