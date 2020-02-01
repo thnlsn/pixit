@@ -19,18 +19,18 @@
     "homepage": "https://github.com/thnlsn/pixit#readme",
     "dependencies": {
         "async": "^3.1.0",
-        "bcryptjs": "^3.0.7",
+        "bcrypt": "^3.0.7",
         "concurrently": "^5.1.0",
+        "config": "^3.2.5",
         "cookie-parser": "^1.4.4",
         "express": "^4.17.1",
         "is-mobile": "^2.1.0",
         "jsonwebtoken": "^8.5.1",
         "mongodb": "^3.3.4",
+        "mongoose": "^5.8.11",
         "passport": "^0.4.0",
         "passport-jwt": "^4.0.0",
         "passport-local": "^1.0.0",
-        "react-backend": "^1.1.2",
-        "config": "^3.2.5",
-        "mongoose": "^5.8.11"
+        "react-backend": "^1.1.2"
     }
 }
