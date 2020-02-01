@@ -6,6 +6,11 @@ import Splash from './Components/SplashPage/Splash'
 import Dashboard from '../src/Components/Dashboard/Dashboard'
 import Leaderboard from '../src/Components/Leaderboard/Leaderboard'
 
+// pages
+import Register from '../src/Components/auth/Register';
+import Login from '../src/Components/auth/Login';
+import About from '../src/Components/About';
+
 const isAuthenticated = true;
 
 
