@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 // import UserContext from '../../context/user/userContext';
 
 function Nav() {
-
     // const userContext = useContext(UserContext);
 
     // const { isAuthenticated, logout, user } = userContext;
@@ -13,36 +12,31 @@ function Nav() {
     //     logout();
     // };
 
-
     const guestLinks = (
         <Fragment>
-          
-          <div className="hvr-underline-from-right hvr-rotate">
-              <Link to="/about" className="white">
-                About
-              </Link>
+            <div className='hvr-underline-from-right hvr-rotate'>
+                <Link to='/about' className='white'>
+                    About
+                </Link>
             </div>
-            <div className="hvr-underline-from-right hvr-rotate">
-              <Link to="/register" className="white">
-                How it works
-              </Link>
+            <div className='hvr-underline-from-right hvr-rotate'>
+                <Link to='/register' className='white'>
+                    How it works
+                </Link>
             </div>
-            <div className="hvr-underline-from-right hvr-rotate">
-              <Link to="/login" className="white">
-                FAQ
-              </Link>
+            <div className='hvr-underline-from-right hvr-rotate'>
+                <Link to='/login' className='white'>
+                    FAQ
+                </Link>
             </div>
-            
-          
         </Fragment>
-      );
-      
-      const navStyle = {
+    );
+
+    const navStyle = {
         color: 'white'
     };
 
-
-      return (
+    return (
         <nav className='navbar'>
             <Link to='/' className='title-link'>
                 <h1 style={navStyle} className='title'>
@@ -51,10 +45,8 @@ function Nav() {
                 </h1>
             </Link>
             <ul className='nav-links'>
-                
                 {/* {isAuthenticated ? authLinks : guestLinks} */}
                 {guestLinks}
-                
             </ul>
         </nav>
     );
