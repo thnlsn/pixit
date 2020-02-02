@@ -25,6 +25,7 @@ app.post(
         failureRedirect: '/loginfail'
     }),
     (req, res) => {
+        console.log(res);
         res.end(JSON.stringify({ login: true }));
     }
 );
@@ -42,6 +43,7 @@ app.post('/coords', (req, res) => {
     );
 });
 app.get('/loginfail', (req, res) => {
+    console.log(res);
     res.end(JSON.stringify({ error: res.locals.error }));
 });
 

@@ -15,16 +15,14 @@ import About from '../src/Components/About';
 import UserState from './context/user/UserState';
 import AlertState from './context/alert/AlertState';
 
-const isAuthenticated = false;
 
-
-  const mainPage = (
+/*   const mainPage = (
 <Dashboard/>
-  )
+  ) */
 
-  const splashPage = (
+/*   const splashPage = (
 <Splash/>
-  )
+  ) */
 
 
 
@@ -36,18 +34,17 @@ function App() {
       <AlertState>
       <Router>
         <div className='App'>
-          <Nav isAuthenticated={isAuthenticated}/>
+          <Nav/>
         <div className='container'>
             <Switch>
-              <Route path='/' exact component={Dashboard} />
+              <Route path='/' exact component={Splash} />
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
               <Route path='/about' component={About} />
               <Route path='/leaderboard' component={Leaderboard} />
+              <Route path='/dashboard' component={Dashboard} />
           {/* <Leaderboard/> */}
           {/* <MapComponent/> */}
-
-        {isAuthenticated ? mainPage : splashPage}
           
             {/* <Alerts /> */}
             {/* <Preload /> */}
