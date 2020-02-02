@@ -15,8 +15,8 @@ function Nav(props) {
 
     const authLinks = (
     <Fragment>
-
         <div className="nav-item2">
+        <h2>Hi, {user.name}</h2>
           <div className="nav-link">
             <Link to="/leaderboard">
             Leaderboard
@@ -86,7 +86,7 @@ function Nav(props) {
             </Link>
             </div>
                 
-                {props.isAuthenticated ? authLinks : guestLinks}
+                {isAuthenticated ? authLinks : guestLinks}
                 
         </nav>
     );

@@ -1,44 +1,107 @@
+/* import React, { Component } from 'react'
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps' */
+/* import MapComponent from './MapComponent'
 
-import React, { Component, createRef } from 'react'
-
-export default class GoogleMap extends Component {
-  googleMapRef = React.createRef()
-
-  componentDidMount() {
-    const googleMapScript = document.createElement('script')
-    googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAP_API_KEY}&libraries=places`
-    window.document.body.appendChild(googleScript)
-
-    googleScript.addEventListener('load', 
-      this.googleMap = this.createGoogleMap(),
-      this.marker = this.createMarker()
-    )
+class MapView extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      currentLatLng: {
+        lat: 0,
+        lng: 0
+      },
+      isMarkerShown: false
+    }
   }
 
-  createGoogleMap = () =>
-    new window.google.maps.Map(this.googleMapRef.current, {
-      zoom: 16,
-      center: {
-        lat: 43.642567,
-        lng: -79.387054,
-      },
-      disableDefaultUI: true,
-    })
+  componentWizllUpdate(){
+    this.getGeoLocation()
+  }
 
-  createMarker = () =>
-    new window.google.maps.Marker({
-      position: { lat: 43.642567, lng: -79.387054 },
-      map: this.googleMap,
-    })
+  componentDidMount() {
+    this.delayedShowMarker()
+  }
+
+  delayedShowMarker = () => {
+    setTimeout(() => {
+      this.getGeoLocation()
+      this.setState({ isMarkerShown: true })
+    }, 5000)
+  }
+
+  handleMarkerClick = () => {
+    this.setState({ isMarkerShown: false })
+    this.delayedShowMarker()
+  }
+
+  getGeoLocation = () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            position => {
+                console.log(position.coords);
+                this.setState(prevState => ({
+                    currentLatLng: {
+                        ...prevState.currentLatLng,
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    }
+                }))
+            }
+        )
+    } 
+}
 
   render() {
     return (
-      <div
-        id="google-map"
-        ref={this.googleMapRef}
-        style={{ width: '400px', height: '300px' }}
+      <MapComponent
+        isMarkerShown={this.state.isMarkerShown}
+        onMarkerClick={this.handleMarkerClick}
+        currentLocation={this.state.currentLatLng}
       />
     )
   }
 }
 
+export default MapView; */
+
+import React, { useState, useEffect } from 'react'
+import GoogleMapReact from 'google-map-react';
+
+const SimpleMap = (center) => {
+
+return (
+    // Important! Always set the container height explicitly
+    
+    <div style={{ height: '100%', width: '100%' }}>
+        {console.log(center)}
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: 'AIzaSyAObjwKwsn3gcQs7QxH8OGwqjK4erKJMCA' }}
+        center={center}
+        zoom={16}
+      >
+      </GoogleMapReact>
+    </div>
+  );
+
+}
+ 
+/* class SimpleMap extends Component {
+
+    
+    render() {
+        console.log(this.props);
+    return (
+      // Important! Always set the container height explicitly
+      <div style={{ height: '100%', width: '100%' }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: 'AIzaSyAObjwKwsn3gcQs7QxH8OGwqjK4erKJMCA' }}
+          defaultCenter={this.props.center}
+          defaultZoom={16}
+        >
+        </GoogleMapReact>
+      </div>
+    );
+  }
+} */
+ 
+export default SimpleMap;
