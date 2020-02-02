@@ -28,23 +28,23 @@ const UserState = props => {
 
     //▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
     // LOAD_USER: this will get all the data for the user and place it in state whenever we need
-    const loadUser = async () => {
-        const res = await axios.get('/api');
+    const loadUser = async (email) => { // api/auth
+        const res = await axios.get(`/api?email=${email}`);
         dispatch({ type: USER_LOADED, payload: res.data });
     };
 
     //▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
     // REGISTER_USER:
-    const register = async formData => {
+    const register = async formData => { // api/users
         try {
-            const res = await axios.post('/api/users', formData);
+            const res = await axios.post('/signup', formData);
 
             dispatch({
                 type: REGISTER_SUCCESS,
                 payload: res.data // token signed in users.js
             });
 
-            loadUser(); // loading user when they register so they don't have to then log in (basically logging in for them)
+            loadUser(formData.email); // loading user when they register so they don't have to then log in (basically logging in for them)
         } catch (err) {
             dispatch({
                 type: REGISTER_FAIL,
@@ -55,20 +55,20 @@ const UserState = props => {
 
     //▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
     // LOGIN_USER:
-    const login = async formData => {
+    const login = async formData => { // api/auth
         try {
             const res = await axios.post('/login', formData);
 
             dispatch({
                 type: LOGIN_SUCCESS,
-                payload: res.data // token signed in users.js
+                payload: res.body
             });
 
-            loadUser(); // load user when they login
+            loadUser(formData.email);
         } catch (err) {
             dispatch({
                 type: LOGIN_FAIL,
-                payload: err.response.data.msg // this is from users.js error
+                payload: err.response.data.msg
             });
         }
     };
