@@ -1,30 +1,31 @@
 {
-    "name": "final-node",
-    "version": "1.0.0",
-    "description": "the final node backend",
-    "main": "app.js",
-    "scripts": {
-        "start": "node server.js",
-        "server": "nodemon server.js",
-        "client": "npm start --prefix client",
-        "clientInstall": "npm install --prefix client",
-        "dev": "concurrently \"npm run server\" \"npm run client\"",
-        "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
-    },
-    "author": "",
-    "license": "ISC",
-    "dependencies": {
-        "async": "^3.1.0",
-        "bcryptjs": "^2.4.3",
-        "concurrently": "^5.1.0",
-        "cookie-parser": "^1.4.4",
-        "express": "^4.17.1",
-        "is-mobile": "^2.1.0",
-        "jsonwebtoken": "^8.5.1",
-        "mongodb": "^3.3.4",
-        "passport": "^0.4.0",
-        "passport-jwt": "^4.0.0",
-        "passport-local": "^1.0.0",
-        "react-backend": "^1.1.2"
-    }
+  "name": "final-node",
+  "version": "1.0.0",
+  "description": "the final node backend",
+  "main": "app.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "clientInstall": "npm install --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.1.0",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^5.1.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "google-maps-react": "^2.0.2",
+    "is-mobile": "^2.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.3.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "react-backend": "^1.1.2"
+  }
 }

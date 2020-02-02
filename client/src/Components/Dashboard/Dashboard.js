@@ -1,22 +1,27 @@
-import React, { useContext, useEffect} from 'react';
+import React, { useContext, useEffect, useState} from 'react';
 import UserContext from '../../context/user/userContext';
+import SimpleMap from './Map';
 
 // dummy stats
 
 const Dashboard = (props) => {  
-    var results = []
+    const [balls, setBalls] = useState({
+        lat: 0,
+        lng: 0
+    })
+
     const userContext = useContext(UserContext);
     const { isAuthenticated, loadUser, user } = userContext;
-    const {lbs, pixPoints, starts, contributions, zip} = user;
+    const {lbs, pixPoints, zip} = user;
 
     useEffect(() => {
         if (!isAuthenticated) {
             props.history.push('/');
-        } else {
-            getCoordinates(zip)
         }
+        setBalls(balls)
+/*         setCenter(center) */
         // eslint-disable-next-line
-    }, [isAuthenticated, zip, props.history]);
+    }, [isAuthenticated, props.history, balls]);
 
     function getCoordinates(zipcode){
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=AIzaSyAObjwKwsn3gcQs7QxH8OGwqjK4erKJMCA&region=us`)
@@ -24,13 +29,22 @@ const Dashboard = (props) => {
           .then(data => {
             let latitude = data.results[0].geometry.location.lat
             let longitude = data.results[0].geometry.location.lng
-            results.push(latitude, longitude);
-            console.log(results)
-          })
-      }
+
+            setBalls({lat: latitude, lng: longitude})
+
+/*             balls.lat = latitude;
+            balls.lng = longitude; */
+
+/*             results.push(latitude, longitude); */
+            console.log(balls)
+        })
+    }
+
     return (
         <div className="grid-container">
             <div className="item1">
+                <SimpleMap center={balls}>
+                </SimpleMap>
             </div>
             <div className="item2">
                 <container className="stats-container">
@@ -41,14 +55,8 @@ const Dashboard = (props) => {
                         <li>
                             Pix Points: {pixPoints}
                         </li>
-                        <li>
-                            Starts: {starts}
-                        </li>
-                        <li>
-                            Contributions: {contributions}
-                        </li>
-
                     </ul>
+                    <button type='button' onClick={getCoordinates} >Refresh</button>
                 </container>
             </div>
         </div>
