@@ -1,20 +1,6 @@
-import React, {useContext, useEffect} from 'react';
-import UserContext from '../../context/user/userContext';
-import AlertContext from '../../context/alert/alertContext';
+import React from 'react';
 
-const Splash = (props) => {
-
-    const userContext = useContext(UserContext)
-    const { isAuthenticated, user } = userContext;
-
-    useEffect(() => {
-        if (isAuthenticated) {
-            props.history.push('/dashboard');
-        } 
-        // eslint-disable-next-line
-    }, [isAuthenticated, props.history]);
-
-
+const Splash = () => {
     return (
         <div className='splash'>
             <p>

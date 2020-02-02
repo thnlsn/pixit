@@ -37,7 +37,7 @@ function App() {
           <Nav/>
         <div className='container'>
             <Switch>
-              <Route path='/' exact component={Splash} />
+              <Route path='/' exact component={Dashboard} />
               <Route path='/register' component={Register} />
               <Route path='/login' component={Login} />
               <Route path='/about' component={About} />

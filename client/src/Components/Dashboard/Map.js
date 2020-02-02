@@ -1,51 +1,44 @@
-import React, { Component, useState, useEffect } from 'react';
-import GoogleMapReact from 'google-map-react';
- 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
-function SimpleMap(props) {
-console.log(props)
-let zip;
-  const [lat, setLat] = useState(props.lat);
-  const [lng, setLng] = useState(props.lng);
+import React, { Component, createRef } from 'react'
 
-  const [center, setCenter] = useState({
-    lat: props.lat,
-    long: props.lng
-  })
+export default class GoogleMap extends Component {
+  googleMapRef = React.createRef()
 
-  useEffect(() => {
-    setLat(lat);
-    setLng(lng);
-  }, [lat,lng])
+  componentDidMount() {
+    const googleMapScript = document.createElement('script')
+    googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAP_API_KEY}&libraries=places`
+    window.document.body.appendChild(googleScript)
 
-  console.log(center)
+    googleScript.addEventListener('load', 
+      this.googleMap = this.createGoogleMap(),
+      this.marker = this.createMarker()
+    )
+  }
 
-  useEffect(() => {
-    setCenter(center)
-    // eslint-disable-next-line
-}, [center, zip]);
+  createGoogleMap = () =>
+    new window.google.maps.Map(this.googleMapRef.current, {
+      zoom: 16,
+      center: {
+        lat: 43.642567,
+        lng: -79.387054,
+      },
+      disableDefaultUI: true,
+    })
 
-console.log(center)
+  createMarker = () =>
+    new window.google.maps.Marker({
+      position: { lat: 43.642567, lng: -79.387054 },
+      map: this.googleMap,
+    })
 
-  return (
-    // Important! Always set the container height explicitly
-    <div style={{ height: '100%', width: '100%' }}>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: 'AIzaSyAObjwKwsn3gcQs7QxH8OGwqjK4erKJMCA' }}
-        defaultCenter={center}
-        defaultZoom={16}
-      >
-        <AnyReactComponent
-          lat={59.955413}
-          lng={30.337844}
-          text="My Marker"
-        />
-      </GoogleMapReact>
-    </div>
-  );
+  render() {
+    return (
+      <div
+        id="google-map"
+        ref={this.googleMapRef}
+        style={{ width: '400px', height: '300px' }}
+      />
+    )
+  }
 }
-  
 
- 
-export default SimpleMap;

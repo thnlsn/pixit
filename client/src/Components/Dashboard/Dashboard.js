@@ -1,25 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect} from 'react';
 import UserContext from '../../context/user/userContext';
-import SimpleMap from './Map';
 
 // dummy stats
 
-
-const Dashboard = (props) => {  /* 
-    const [isAuthenticated, setIsAuthenticated] = useState(null)
-    const [loadUser, setLoadUser] = useState(null)
-    const [user, setUser] = useState(props.user) */
-    const userContext = useContext(UserContext)
+const Dashboard = (props) => {  
+    var results = []
+    const userContext = useContext(UserContext);
     const { isAuthenticated, loadUser, user } = userContext;
     const {lbs, pixPoints, starts, contributions, zip} = user;
-    let coords = [];
 
     useEffect(() => {
-        getCoordinates(zip)
-        console.log(getCoordinates(zip))
+        if (!isAuthenticated) {
+            props.history.push('/');
+        } else {
+            getCoordinates(zip)
+        }
         // eslint-disable-next-line
-    }, []);
-
+    }, [isAuthenticated, zip, props.history]);
 
     function getCoordinates(zipcode){
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=AIzaSyAObjwKwsn3gcQs7QxH8OGwqjK4erKJMCA&region=us`)
@@ -27,18 +24,13 @@ const Dashboard = (props) => {  /*
           .then(data => {
             let latitude = data.results[0].geometry.location.lat
             let longitude = data.results[0].geometry.location.lng
-            coords.push(latitude);
-            coords.push(longitude);
+            results.push(latitude, longitude);
+            console.log(results)
           })
       }
-
     return (
         <div className="grid-container">
             <div className="item1">
-                <SimpleMap lat={51.771830}
-                           lng={19.461002}>
-
-                </SimpleMap>
             </div>
             <div className="item2">
                 <container className="stats-container">
